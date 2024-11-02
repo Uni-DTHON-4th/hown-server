@@ -12,7 +12,7 @@ import org.hibernate.annotations.DynamicInsert;
 @Getter
 @DynamicInsert
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class User extends BaseEntity {
+public class Users extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long userIdx;
@@ -27,7 +27,7 @@ public class User extends BaseEntity {
     private String password;
 
     @Builder
-    public User(String nickname, String loginId, String password) {
+    public Users(String nickname, String loginId, String password) {
         this.nickname = nickname;
         this.loginId = loginId;
         this.password = password;
