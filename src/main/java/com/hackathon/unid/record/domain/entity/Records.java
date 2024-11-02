@@ -6,6 +6,7 @@ import com.hackathon.unid.user.domain.entity.Users;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Size;
 import lombok.AccessLevel;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.DynamicInsert;
@@ -59,4 +60,20 @@ public class Records extends BaseEntity {
     private String memo;
 
     private Double totalRating;
+
+    @Builder
+    public Records(Users user, Properties property, Integer waterPressure, Integer soundProofing, Integer dayLighting, Integer heating, Integer security,
+                    Integer facility, String recordImage, String memo, Double totalRating) {
+        this.user = user;
+        this.property = property;
+        this.waterPressure = waterPressure;
+        this.soundProofing = soundProofing;
+        this.dayLighting = dayLighting;
+        this.heating = heating;
+        this.security = security;
+        this.facility = facility;
+        this.recordImage = recordImage;
+        this.memo = memo;
+        this.totalRating = totalRating;
+    }
 }
