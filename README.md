@@ -1,3 +1,4 @@
+# 🏠 Hown Server
 ## Convention Rules
 
 ### Commit Message
