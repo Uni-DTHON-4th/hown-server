@@ -30,5 +30,5 @@ public class Reviews extends BaseEntity {
     @Column(nullable = false)
     private String reviewImage;
 
-    private Integer totalRating;
+    private Double totalRating;
 }
