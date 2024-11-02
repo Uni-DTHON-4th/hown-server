@@ -29,8 +29,4 @@ public class ReviewAspects extends BaseEntity {
     @Size(max = 5)
     @Column(nullable = false)
     private Integer aspectRating;
-
-    @Size(max = 600)
-    @Column(nullable = false)
-    private String aspectContent;
 }
