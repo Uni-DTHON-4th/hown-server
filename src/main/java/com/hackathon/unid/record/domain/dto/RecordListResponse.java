@@ -7,12 +7,5 @@ public record RecordListResponse(List<RecordDto> records) {
                             String recordImage,
                             String buildingName,
                             String address,
-                            Double totalRating,
-                            Integer waterPressure,
-                            Integer soundProofing,
-                            Integer dayLighting,
-                            Integer heating,
-                            Integer security,
-                            Integer facility,
-                            String memo) {}
+                            Double totalRating) {}
 }
