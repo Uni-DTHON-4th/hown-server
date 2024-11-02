@@ -1,3 +1,5 @@
+## Convention Rules
+
 ### Commit Message
 
 > #이슈번호 커밋타입(영어 소문자): 설명
