@@ -14,6 +14,9 @@ public enum BaseResponseStatus {
      */
     // users(2000-2099)
 
+    // records(2100-2199)
+    INVALID_RECORD_IDX(false, 2100, "유효하지 않은 record idx입니다."),
+
     /**
      * 3000: Response 오류
      */
