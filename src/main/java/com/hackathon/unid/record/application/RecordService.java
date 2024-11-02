@@ -33,10 +33,7 @@ public class RecordService {
                             record.getRecordImage(),
                             record.getProperty().getLocation().getBuildingName(),
                             record.getProperty().getLocation().getAddress(),
-                            record.getTotalRating(),
-                            record.getWaterPressure(), record.getSoundProofing(), record.getDayLighting(),
-                            record.getHeating(), record.getSecurity(), record.getFacility(),
-                            record.getMemo())).toList();
+                            record.getTotalRating())).toList();
             return new RecordListResponse(recordList);
         } catch (Exception e) {
             throw new BaseException(DATABASE_ERROR);
