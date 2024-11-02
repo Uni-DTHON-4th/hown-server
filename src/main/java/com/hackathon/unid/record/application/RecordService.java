@@ -1,6 +1,8 @@
 package com.hackathon.unid.record.application;
 
 import com.hackathon.unid.common.base.BaseException;
+import com.hackathon.unid.record.domain.dto.RecordResponse;
+import com.hackathon.unid.record.domain.entity.Records;
 import com.hackathon.unid.record.repository.RecordRepository;
 import com.hackathon.unid.record.domain.dto.RecordListResponse;
 import com.hackathon.unid.user.domain.entity.Users;
@@ -12,6 +14,7 @@ import java.util.List;
 
 import static com.hackathon.unid.common.constants.Constant.ACTIVE;
 import static com.hackathon.unid.common.enums.BaseResponseStatus.DATABASE_ERROR;
+import static com.hackathon.unid.common.enums.BaseResponseStatus.INVALID_RECORD_IDX;
 
 @Service
 @RequiredArgsConstructor
@@ -39,4 +42,26 @@ public class RecordService {
             throw new BaseException(DATABASE_ERROR);
         }
     }
+
+    // 기록 상세 조회
+    public RecordResponse getRecord(Long recordIdx) throws BaseException {
+        try {
+            Records record = recordRepository.findById(recordIdx).orElseThrow(() -> new BaseException(INVALID_RECORD_IDX));
+
+            return new RecordResponse(
+                    record.getRecordIdx(),
+                    record.getRecordImage(),
+                    record.getProperty().getLocation().getBuildingName(),
+                    record.getProperty().getLocation().getAddress(),
+                    record.getTotalRating(),
+                    record.getWaterPressure(), record.getSoundProofing(), record.getDayLighting(),
+                    record.getHeating(), record.getSecurity(), record.getFacility(),
+                    record.getMemo());
+        } catch (BaseException e) {
+            throw e;
+        } catch (Exception e) {
+            throw new BaseException(DATABASE_ERROR);
+        }
+    }
+
 }
