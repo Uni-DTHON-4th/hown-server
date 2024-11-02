@@ -1,0 +1,3 @@
+[submodule "hown-server-yml"]
+	path = hown-server-yml
+	url = https://github.com/Uni-DTHON-4th/hown-server-yml

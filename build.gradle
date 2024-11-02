@@ -42,3 +42,12 @@ dependencies {
 tasks.named('test') {
     useJUnitPlatform()
 }
+
+task copyYML(type: Copy){
+    copy{
+        from './hown-server-yml'
+        include '**/*'
+        exclude 'README.md'
+        into './src/main/resources'
+    }
+}
