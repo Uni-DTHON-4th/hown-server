@@ -57,4 +57,6 @@ public class Records extends BaseEntity {
 
     @Column(nullable = false, length = 1000)
     private String memo;
+
+    private Double totalRating;
 }
