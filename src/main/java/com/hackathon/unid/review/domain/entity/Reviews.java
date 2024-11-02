@@ -27,6 +27,9 @@ public class Reviews extends BaseEntity {
     @JoinColumn(nullable = false, name = "propertyIdx")
     private Properties property;
 
+    private String cons;
+    private String pros;
+
     @Column(nullable = false)
     private String reviewImage;
 
