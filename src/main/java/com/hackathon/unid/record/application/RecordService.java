@@ -3,6 +3,8 @@ package com.hackathon.unid.record.application;
 import com.hackathon.unid.common.base.BaseException;
 import com.hackathon.unid.record.repository.RecordRepository;
 import com.hackathon.unid.record.domain.dto.RecordListResponse;
+import com.hackathon.unid.user.domain.entity.Users;
+import com.hackathon.unid.user.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -16,11 +18,13 @@ import static com.hackathon.unid.common.enums.BaseResponseStatus.DATABASE_ERROR;
 public class RecordService {
 
     private final RecordRepository recordRepository;
+    private final UserRepository userRepository;
 
     // 기록 목록 조회
     public RecordListResponse getRecords(Long uid) throws BaseException {
         try {
-           List<RecordListResponse.RecordDto> recordList = recordRepository.findTop5ByUidAndStatusEqualsOrderByCreatedDateDesc(uid, ACTIVE).stream()
+            Users user = userRepository.findByUserIdx(uid);
+            List<RecordListResponse.RecordDto> recordList = recordRepository.findTop5ByUserAndStatusEqualsOrderByCreatedDateDesc(user, ACTIVE).stream()
                     .map(record -> new RecordListResponse.RecordDto(
                             record.getRecordIdx(),
                             record.getRecordImage(),
